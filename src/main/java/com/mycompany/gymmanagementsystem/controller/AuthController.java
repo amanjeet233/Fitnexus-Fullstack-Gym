@@ -7,7 +7,6 @@ import com.mycompany.gymmanagementsystem.repository.MemberRepository;
 import com.mycompany.gymmanagementsystem.repository.TrainerRepository;
 import com.mycompany.gymmanagementsystem.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Profile;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +14,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-@Profile("db")
 @RestController
 @RequestMapping("/api/auth")
 @CrossOrigin(origins = "*")

@@ -21,7 +21,7 @@ Modern, professional FitNexus built with **Next.js 14**, **Tailwind CSS**, **sha
 - Node.js 18+ installed
 - Backend Spring Boot API:
   - **Local dev**: `http://localhost:8080`
-  - **Production**: your Railway URL, e.g. `https://fitnexus.up.railway.app`
+  - **Production**: your Railway URL, e.g. `https://fitnexuss.up.railway.app`
 
 ### Installation
 
@@ -126,7 +126,7 @@ The frontend connects to the Spring Boot backend API using an environment variab
 Examples:
 
 - Local dev: `NEXT_PUBLIC_API_URL=http://localhost:8080/api`
-- Production (Netlify): `NEXT_PUBLIC_API_URL=https://fitnexus.up.railway.app/api`
+- Production (Netlify): `NEXT_PUBLIC_API_URL=https://fitnexuss.up.railway.app/api`
 
 Make sure this variable is set correctly in Netlify before deploying.
 

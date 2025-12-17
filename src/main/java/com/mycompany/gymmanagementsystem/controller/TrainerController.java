@@ -5,14 +5,12 @@ import com.mycompany.gymmanagementsystem.model.User;
 import com.mycompany.gymmanagementsystem.repository.TrainerRepository;
 import com.mycompany.gymmanagementsystem.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Profile;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.SecureRandom;
 import java.util.*;
 
-@Profile("db")
 @RestController
 @RequestMapping("/api/trainers")
 @CrossOrigin(origins = "*")
