@@ -54,7 +54,7 @@ export default function LoginPage() {
     } catch (err: any) {
       console.error("Login error:", err);
       if (err.code === 'ECONNREFUSED' || err.message?.includes('Network Error') || err.message?.includes('timeout')) {
-        setError("Cannot connect to server. Please check if the FitNexus backend is running and reachable.");
+        setError("Cannot connect to server. Please check if backend is running on http://localhost:8080");
       } else if (err.response?.status === 401) {
         setError("Invalid username or password. Try: admin / admin");
       } else if (err.response?.data?.message) {
