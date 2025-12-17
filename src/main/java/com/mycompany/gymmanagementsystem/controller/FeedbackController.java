@@ -3,6 +3,7 @@ package com.mycompany.gymmanagementsystem.controller;
 import com.mycompany.gymmanagementsystem.model.Feedback;
 import com.mycompany.gymmanagementsystem.repository.FeedbackRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Profile("db")
 @RestController
 @RequestMapping("/api/feedback")
 @CrossOrigin(origins = "*")

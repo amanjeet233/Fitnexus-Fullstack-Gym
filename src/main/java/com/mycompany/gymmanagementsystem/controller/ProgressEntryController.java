@@ -3,11 +3,13 @@ package com.mycompany.gymmanagementsystem.controller;
 import com.mycompany.gymmanagementsystem.model.ProgressEntry;
 import com.mycompany.gymmanagementsystem.repository.ProgressEntryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
+@Profile("db")
 @RestController
 @RequestMapping("/api/progress")
 @CrossOrigin(origins = "*")
