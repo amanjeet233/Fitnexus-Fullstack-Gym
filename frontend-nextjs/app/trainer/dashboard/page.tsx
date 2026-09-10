@@ -25,7 +25,13 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { format } from "date-fns";
-import TrainerDashboardBackground from "@/components/TrainerDashboardBackground";
+import dynamic from "next/dynamic";
+
+// Dynamic import for heavy animated background (lazy load)
+const TrainerDashboardBackground = dynamic(
+  () => import("@/components/TrainerDashboardBackground"),
+  { ssr: false }
+);
 
 export default function TrainerDashboardPage() {
   const router = useRouter();

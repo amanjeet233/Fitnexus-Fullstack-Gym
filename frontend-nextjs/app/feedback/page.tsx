@@ -18,7 +18,12 @@ import {
   UserCheck,
   Mail,
 } from "lucide-react";
-import EnhancedAnimatedBackground from "@/components/EnhancedAnimatedBackground";
+import dynamic from "next/dynamic";
+
+const EnhancedAnimatedBackground = dynamic(
+  () => import("@/components/EnhancedAnimatedBackground"),
+  { ssr: false }
+);
 
 export default function FeedbackPage() {
   const router = useRouter();

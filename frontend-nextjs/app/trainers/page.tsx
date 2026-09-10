@@ -25,7 +25,12 @@ import {
   Plus,
 } from "lucide-react";
 import { format } from "date-fns";
-import EnhancedAnimatedBackground from "@/components/EnhancedAnimatedBackground";
+import dynamic from "next/dynamic";
+
+const EnhancedAnimatedBackground = dynamic(
+  () => import("@/components/EnhancedAnimatedBackground"),
+  { ssr: false }
+);
 
 export default function TrainersPage() {
   const router = useRouter();

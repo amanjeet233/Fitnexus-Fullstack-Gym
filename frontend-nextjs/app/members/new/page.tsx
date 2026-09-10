@@ -10,7 +10,12 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
 import { ArrowLeft, Save } from "lucide-react";
-import EnhancedAnimatedBackground from "@/components/EnhancedAnimatedBackground";
+import dynamic from "next/dynamic";
+
+const EnhancedAnimatedBackground = dynamic(
+  () => import("@/components/EnhancedAnimatedBackground"),
+  { ssr: false }
+);
 
 export default function NewMemberPage() {
   const router = useRouter();

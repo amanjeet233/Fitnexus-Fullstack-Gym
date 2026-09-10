@@ -9,7 +9,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Eye, EyeOff, Lock, User, Dumbbell } from "lucide-react";
-import LoginAnimatedBackground from "@/components/LoginAnimatedBackground";
+import dynamic from "next/dynamic";
+
+// Dynamic import for heavy animated background (lazy load)
+const LoginAnimatedBackground = dynamic(
+  () => import("@/components/LoginAnimatedBackground"),
+  { ssr: false }
+);
 
 export default function LoginPage() {
   const [username, setUsername] = useState("");
@@ -54,7 +60,7 @@ export default function LoginPage() {
     } catch (err: any) {
       console.error("Login error:", err);
       if (err.code === 'ECONNREFUSED' || err.message?.includes('Network Error') || err.message?.includes('timeout')) {
-        setError("Cannot connect to server. Please check if backend is running on http://localhost:8080");
+        setError("Cannot connect to server. Please check your network connection or verify that the backend is online.");
       } else if (err.response?.status === 401) {
         setError("Invalid username or password. Try: admin / admin");
       } else if (err.response?.data?.message) {

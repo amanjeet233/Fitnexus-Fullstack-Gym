@@ -22,7 +22,13 @@ import {
   ChevronUp,
 } from "lucide-react";
 import { format } from "date-fns";
-import MemberDashboardBackground from "@/components/MemberDashboardBackground";
+import dynamic from "next/dynamic";
+
+// Dynamic import for heavy animated background (lazy load)
+const MemberDashboardBackground = dynamic(
+  () => import("@/components/MemberDashboardBackground"),
+  { ssr: false }
+);
 
 export default function MemberDashboardPage() {
   const router = useRouter();

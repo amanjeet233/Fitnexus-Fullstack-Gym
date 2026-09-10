@@ -19,7 +19,13 @@ import {
   ArrowRight,
   MessageSquare,
 } from "lucide-react";
-import EnhancedAnimatedBackground from "@/components/EnhancedAnimatedBackground";
+import dynamic from "next/dynamic";
+
+// Dynamic import for heavy animated background (lazy load)
+const EnhancedAnimatedBackground = dynamic(
+  () => import("@/components/EnhancedAnimatedBackground"),
+  { ssr: false }
+);
 
 export default function DashboardPage() {
   const router = useRouter();
