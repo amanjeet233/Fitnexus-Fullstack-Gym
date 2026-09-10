@@ -14,7 +14,6 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/api/members")
-@CrossOrigin(origins = "*")
 public class MemberController {
     
     @Autowired

@@ -10,7 +10,6 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/api/workouts")
-@CrossOrigin(origins = "*")
 public class WorkoutPlanController {
 
     @Autowired

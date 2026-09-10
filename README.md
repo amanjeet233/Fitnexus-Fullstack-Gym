@@ -51,36 +51,74 @@ A modern, comprehensive gym management system built with **Spring Boot** (Backen
 - **HTTP Client**: Axios
 - **Icons**: Lucide React
 
-## 📋 Prerequisites
+## 🐳 Running with Docker (Recommended - Single Command Startup)
 
-Before you begin, ensure you have the following installed:
+Run the entire application stack without needing Java, Maven, Node.js, npm, or MySQL on your host machine:
 
-- **Java JDK 8+** (or Java 11+ recommended)
-- **Maven 3.6+**
-- **Node.js 18+**
-- **npm** or **yarn**
-- **MySQL 8.0+**
-- **Git**
+### Prerequisites
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) (running)
+- Git
 
-## 🚀 Quick Start
-
-### 1. Clone the Repository
-
+### 1. Clone & Configure
 ```bash
 git clone https://github.com/amanjeet233/Fitnexus-Fullstack-Gym.git
 cd Fitnexus-Fullstack-Gym
+
+# Copy environment template
+cp .env.example .env
+```
+*(On Windows PowerShell: `Copy-Item .env.example .env`)*
+
+### 2. Single-Command Startup
+```bash
+docker compose up --build
 ```
 
-### 2. Database Setup
+### 3. Access the Applications
+- 🌐 **Frontend Application**: [http://localhost:3000](http://localhost:3000)
+- ⚙️ **Backend REST APIs**: [http://localhost:8080](http://localhost:8080)
+- 🩺 **Backend Health Endpoint**: [http://localhost:8080/api/health](http://localhost:8080/api/health)
+- 🔐 **Default Admin Login**: `username: admin` | `password: admin`
 
-1. Create a MySQL database:
+### Useful Docker Commands
+```bash
+# View live logs for all services
+docker compose logs -f
+
+# View live logs for specific service
+docker compose logs -f backend
+docker compose logs -f frontend
+docker compose logs -f mysql
+
+# Stop all services (preserves database data)
+docker compose down
+
+# Stop and reset database volume (re-executes initial SQL schema on next startup)
+docker compose down -v
+docker compose up --build
+```
+
+---
+
+## 💻 Manual Local Development (Non-Docker Alternative)
+
+If you prefer running services directly on your host machine:
+
+### Prerequisites
+- **Java JDK 8+** (or Java 11/17)
+- **Maven 3.6+**
+- **Node.js 18+** & **npm**
+- **MySQL 8.0+**
+- **Git**
+
+### 1. Database Setup
+1. Create database:
 ```sql
-CREATE DATABASE gym_management;
+CREATE DATABASE gms;
 ```
-
 2. Run the database setup script:
 ```bash
-mysql -u root -p gym_management < database/database_setup_v2.sql
+mysql -u root -p gms < database/database_setup_v2.sql
 ```
 
 Or import the SQL file using MySQL Workbench or phpMyAdmin.

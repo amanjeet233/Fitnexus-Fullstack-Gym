@@ -14,6 +14,9 @@ RUN mvn clean package -DskipTests
 FROM eclipse-temurin:17-jre
 WORKDIR /app
 
+# Install curl for reliable container health checking
+RUN apt-get update && apt-get install -y --no-install-recommends curl && rm -rf /var/lib/apt/lists/*
+
 COPY --from=builder /app/target/GymManagementSystem-1.0-SNAPSHOT.jar app.jar
 
 ENV PORT=8080
