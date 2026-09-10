@@ -7,35 +7,35 @@ import { Dumbbell, Activity, Target, Zap } from "lucide-react";
 const LoginAnimatedBackground = memo(function LoginAnimatedBackground() {
   return (
     <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
-      {/* Dynamic Gradient Background - Gym themed colors */}
+      {/* Dynamic Gradient Background - Clean Premium Blue & Slate Gym Theme (Zero Yellow) */}
       <motion.div
         className="absolute inset-0"
         animate={{
           background: [
-            "linear-gradient(135deg, #1e3a8a 0%, #3b82f6 25%, #60a5fa 50%, #93c5fd 75%, #dbeafe 100%)",
-            "linear-gradient(225deg, #e6f1ff 0%, #b3d9ff 25%, #ffffff 50%, #f0f9ff 75%, #e0f2fe 100%)",
-            "linear-gradient(315deg, #065f46 0%, #10b981 25%, #34d399 50%, #6ee7b7 75%, #a7f3d0 100%)",
-            "linear-gradient(45deg, #1e3a8a 0%, #3b82f6 25%, #60a5fa 50%, #93c5fd 75%, #dbeafe 100%)",
+            "linear-gradient(135deg, #0f172a 0%, #1e3a8a 35%, #2563eb 70%, #60a5fa 100%)",
+            "linear-gradient(225deg, #0284c7 0%, #1e40af 40%, #0f172a 100%)",
+            "linear-gradient(315deg, #0f172a 0%, #1e3a8a 40%, #0284c7 80%, #38bdf8 100%)",
+            "linear-gradient(45deg, #0f172a 0%, #1e3a8a 35%, #2563eb 70%, #60a5fa 100%)",
           ],
         }}
         transition={{
-          duration: 15,
+          duration: 18,
           repeat: Infinity,
           ease: "easeInOut",
         }}
         style={{ willChange: "background" }}
       />
       
-      {/* Gym Equipment Icons - Floating - Highly Visible */}
+      {/* Gym Equipment Icons - Floating with crisp blue/cyan glow */}
       {[
-        { icon: Dumbbell, size: 120, color: "rgba(59, 130, 246, 0.6)", x: "10%", y: "20%", delay: 0 },
-        { icon: Activity, size: 110, color: "rgba(34, 197, 94, 0.6)", x: "80%", y: "30%", delay: 1 },
-        { icon: Target, size: 115, color: "rgba(16, 185, 129, 0.6)", x: "15%", y: "70%", delay: 2 },
-        { icon: Zap, size: 105, color: "rgba(168, 85, 247, 0.6)", x: "85%", y: "65%", delay: 0.5 },
-        { icon: Dumbbell, size: 100, color: "rgba(59, 130, 246, 0.5)", x: "50%", y: "10%", delay: 1.5 },
-        { icon: Activity, size: 95, color: "rgba(34, 197, 94, 0.5)", x: "45%", y: "80%", delay: 2.5 },
-        { icon: Target, size: 90, color: "rgba(16, 185, 129, 0.5)", x: "70%", y: "15%", delay: 3 },
-        { icon: Zap, size: 85, color: "rgba(168, 85, 247, 0.5)", x: "25%", y: "50%", delay: 3.5 },
+        { icon: Dumbbell, size: 120, color: "rgba(56, 189, 248, 0.4)", x: "10%", y: "20%", delay: 0 },
+        { icon: Activity, size: 110, color: "rgba(96, 165, 250, 0.4)", x: "80%", y: "30%", delay: 1 },
+        { icon: Target, size: 115, color: "rgba(14, 165, 233, 0.35)", x: "15%", y: "70%", delay: 2 },
+        { icon: Zap, size: 105, color: "rgba(129, 140, 248, 0.35)", x: "85%", y: "65%", delay: 0.5 },
+        { icon: Dumbbell, size: 100, color: "rgba(56, 189, 248, 0.3)", x: "50%", y: "10%", delay: 1.5 },
+        { icon: Activity, size: 95, color: "rgba(96, 165, 250, 0.3)", x: "45%", y: "80%", delay: 2.5 },
+        { icon: Target, size: 90, color: "rgba(14, 165, 233, 0.3)", x: "70%", y: "15%", delay: 3 },
+        { icon: Zap, size: 85, color: "rgba(129, 140, 248, 0.3)", x: "25%", y: "50%", delay: 3.5 },
       ].map((equipment, i) => {
         const Icon = equipment.icon;
         return (
@@ -49,14 +49,14 @@ const LoginAnimatedBackground = memo(function LoginAnimatedBackground() {
             }}
             initial={{ opacity: 0, scale: 0 }}
             animate={{
-              opacity: [0.4, 0.7, 0.4],
-              scale: [0.9, 1.2, 0.9],
+              opacity: [0.25, 0.55, 0.25],
+              scale: [0.9, 1.15, 0.9],
               rotate: [0, 360],
               y: [0, -30, 0],
               x: [0, 20, 0],
             }}
             transition={{
-              duration: 8 + i * 2,
+              duration: 10 + i * 2,
               repeat: Infinity,
               ease: "easeInOut",
               delay: equipment.delay,
@@ -66,7 +66,7 @@ const LoginAnimatedBackground = memo(function LoginAnimatedBackground() {
               size={equipment.size}
               style={{
                 color: equipment.color,
-                filter: `drop-shadow(0 0 ${equipment.size / 2}px ${equipment.color}) drop-shadow(0 0 ${equipment.size / 4}px ${equipment.color})`,
+                filter: `drop-shadow(0 0 ${equipment.size / 3}px ${equipment.color})`,
                 opacity: 1,
               }}
             />
@@ -74,7 +74,7 @@ const LoginAnimatedBackground = memo(function LoginAnimatedBackground() {
         );
       })}
       
-      {/* Animated Gym Equipment Shapes - Weights/Dumbbells */}
+      {/* Animated Gym Shapes */}
       {[...Array(3)].map((_, i) => (
         <motion.div
           key={`weight-${i}`}
@@ -82,9 +82,7 @@ const LoginAnimatedBackground = memo(function LoginAnimatedBackground() {
           style={{
             width: `${100 + i * 60}px`,
             height: `${100 + i * 60}px`,
-            background: `radial-gradient(circle, ${
-              i === 0 ? "rgba(59, 130, 246, 0.4)" : i === 1 ? "rgba(34, 197, 94, 0.4)" : "rgba(16, 185, 129, 0.4)"
-            } 0%, transparent 70%)`,
+            background: `radial-gradient(circle, rgba(56, 189, 248, 0.35) 0%, transparent 70%)`,
             left: `${10 + i * 35}%`,
             top: `${15 + i * 25}%`,
             willChange: "transform",
@@ -111,10 +109,10 @@ const LoginAnimatedBackground = memo(function LoginAnimatedBackground() {
           style={{
             width: `${4 + (i % 3) * 2}px`,
             height: `${4 + (i % 3) * 2}px`,
-            background: i % 2 === 0 ? "rgba(59, 130, 246, 0.6)" : "rgba(34, 197, 94, 0.6)",
+            background: "rgba(56, 189, 248, 0.6)",
             left: `${15 + (i * 12)}%`,
             top: `${20 + (i * 10)}%`,
-            boxShadow: `0 0 ${6 + i * 2}px ${i % 2 === 0 ? "rgba(59, 130, 246, 0.8)" : "rgba(34, 197, 94, 0.8)"}`,
+            boxShadow: `0 0 ${6 + i * 2}px rgba(56, 189, 248, 0.8)`,
             willChange: "transform",
           }}
           animate={{
@@ -132,13 +130,13 @@ const LoginAnimatedBackground = memo(function LoginAnimatedBackground() {
         />
       ))}
       
-      {/* Animated Grid Pattern - Fitness Theme */}
+      {/* Animated Grid Pattern */}
       <motion.div
-        className="absolute inset-0 opacity-[0.08]"
+        className="absolute inset-0 opacity-[0.06]"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(59, 130, 246, 0.3) 2px, transparent 2px),
-            linear-gradient(90deg, rgba(59, 130, 246, 0.3) 2px, transparent 2px)
+            linear-gradient(rgba(56, 189, 248, 0.3) 2px, transparent 2px),
+            linear-gradient(90deg, rgba(56, 189, 248, 0.3) 2px, transparent 2px)
           `,
           backgroundSize: "50px 50px",
         }}
@@ -152,11 +150,10 @@ const LoginAnimatedBackground = memo(function LoginAnimatedBackground() {
         }}
       />
       
-      {/* Overlay for better contrast */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20" />
+      {/* Dark overlay for contrast */}
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-transparent to-slate-950/60" />
     </div>
   );
 });
 
 export default LoginAnimatedBackground;
-
