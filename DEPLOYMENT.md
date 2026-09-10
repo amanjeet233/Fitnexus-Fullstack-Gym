@@ -201,21 +201,22 @@ Supported on: **AWS EC2, DigitalOcean Droplet, Linode, Hetzner, Google Compute E
 
 ---
 
-### Option B: Cloud PaaS (Railway / Render)
-The repository is pre-configured with dynamic environment variables for cloud PaaS:
-- **MySQL**: Deploy a managed MySQL database on Railway/Aiven/Render.
-- **Backend Service**:
+### Option B: Cloud PaaS (Railway + Vercel)
+For the complete step-by-step production cloud deployment guide with MySQL on Railway, Spring Boot backend on Railway, and Next.js frontend on Vercel, refer to:
+👉 **[`CLOUD_DEPLOYMENT.md`](CLOUD_DEPLOYMENT.md)**
+
+Quick Reference:
+- **MySQL Database**: Deploy managed MySQL on Railway; import [`database/schema_cloud.sql`](database/schema_cloud.sql).
+- **Backend Service (Railway)**:
   - Root directory: `backend`
-  - Dockerfile path: `backend/Dockerfile`
-  - Environment variables:
-    - `MYSQL_URL` or `DATABASE_URL` (provided by Railway/Render)
-    - `PORT=8080`
-    - `CORS_ALLOWED_ORIGINS=https://your-frontend.netlify.app`
-- **Frontend Service**:
+  - Uses `backend/Dockerfile` & `backend/railway.json`
+  - Add MySQL reference variables (`MYSQLHOST`, `MYSQLPORT`, `MYSQLUSER`, `MYSQLPASSWORD`, `MYSQLDATABASE`, `MYSQL_URL`)
+  - Set `CORS_ALLOWED_ORIGINS=https://<YOUR-VERCEL-DOMAIN>.vercel.app`
+- **Frontend Service (Vercel)**:
   - Root directory: `frontend-nextjs`
+  - Framework: Next.js
   - Build command: `npm run build`
-  - Start command: `npm start`
-  - Environment variable: `NEXT_PUBLIC_API_URL=https://your-backend.up.railway.app/api`
+  - Environment variable: `NEXT_PUBLIC_API_URL=https://<YOUR-RAILWAY-BACKEND-URL>/api`
 
 ---
 

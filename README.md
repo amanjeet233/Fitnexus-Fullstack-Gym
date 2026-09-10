@@ -51,6 +51,19 @@ A modern, comprehensive gym management system built with **Spring Boot** (Backen
 - **HTTP Client**: Axios
 - **Icons**: Lucide React
 
+---
+
+## 🚀 Deployment Documentation
+
+Choose your deployment target:
+
+- 🐳 **Local Docker Deployment (Windows / Linux / Mac)**: See **[`DEPLOYMENT.md`](DEPLOYMENT.md)**  
+  Includes single-click batch scripts (`run-docker.bat`, `stop-docker.bat`, `reset-docker.bat`), architecture diagrams, volume persistence, and troubleshooting.
+- 🌐 **Production Cloud Deployment (Railway + Vercel)**: See **[`CLOUD_DEPLOYMENT.md`](CLOUD_DEPLOYMENT.md)**  
+  Includes step-by-step setup for Railway MySQL + Spring Boot backend, Vercel Next.js frontend, CORS configuration, environment variables, and automated GitHub CI/CD.
+
+---
+
 ## 🐳 Running with Docker (Recommended - Single Command Startup)
 
 Run the entire application stack without needing Java, Maven, Node.js, npm, or MySQL on your host machine:
